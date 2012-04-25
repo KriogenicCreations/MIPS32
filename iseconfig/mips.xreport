@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2012-04-24T12:07:01</DateModified>
+  <DateModified>2012-04-24T20:59:00</DateModified>
   <ModuleName>mips</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
   <SavedFilePath>/home/pangadmin/vpworkspace/Mips32/iseconfig/mips.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/home/pangadmin/vpworkspace/Mips32</ImplementationReportsDirectory>
+  <ImplementationReportsDirectory>/home/pangadmin/vpworkspace/Mips32/</ImplementationReportsDirectory>
   <DateInitialized>2012-04-24T12:07:01</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

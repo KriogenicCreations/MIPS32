@@ -267,15 +267,15 @@ ARCHITECTURE Behavioral OF mips IS
 							CLOCK 				=> CLOCK						,
 							RESET 				=> RESET						,
 							opcode 				=> instr (31 DOWNTO 26)	,
-							reg_destination 	=> reg_destination		,
-							jump 					=> jump						,
-							branch 				=> branch					,
-							branch_ne 			=> branch_ne				,
 							mem_read 			=> mem_read					,
 							mem_to_regs 		=> mem_to_regs				,
+							reg_destination 	=> reg_destination		,
+							jump 					=> jump						,
 							alu_oper 			=> alu_oper					,
 							mem_write 			=> mem_write				,
 							alu_source 			=> alu_source				,
+							branch 				=> branch					,
+							branch_ne 			=> branch_ne				,
 							reg_write 			=> reg_write
 						);
 		-- End control_unit

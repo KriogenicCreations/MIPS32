@@ -26,6 +26,8 @@
 ----------------------------------------------------------------------------------
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_ARITH.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 
 -- Entity instruction_fetch
@@ -56,38 +58,31 @@ ARCHITECTURE Behavioral OF instruction_fetch IS
 	SIGNAL program_counter_incr 	: STD_LOGIC_VECTOR (9 DOWNTO 0);
 	SIGNAL program_counter_next	: STD_LOGIC_VECTOR (7 DOWNTO 0);
 
-	-- Begin
+	-- Begin mapping
 	BEGIN
+		Instr_Memory: LPM_ROM
 			PORT MAP (
 							address => PC(9 DOWNTO 2),
 							q 		  => Instruction	
 						);
 							
-							PC_Out <= PC (7 DOWNTO 0);
-							PC_plus_4_out <= PC_plus_4 (7 DOWNTO 0);
-	
-							PC_plus_4 (9 DOWNTO 2) <= PC (9 DOWNTO 2) + 1;
-							PC_plus_4 (1 DOWNTO 0) <= "00";
+			PC_Out <= PC (7 DOWNTO 0);
+			PC_plus_4_out <= PC_plus_4 (7 DOWNTO 0);
+			PC_plus_4 (9 DOWNTO 2) <= PC (9 DOWNTO 2) + 1;
+			PC_plus_4 (1 DOWNTO 0) <= "00";
 
-							Next_PC <= Add_result
-									WHEN 	((Branch = '1') AND (Zero = '1') AND (Branch_NE = '0'))
-										OR ((Branch_NE = '1') AND (Zero = '0'))
-								ELSE Jump_Address
-									WHEN (Jump = '1')
-								ELSE
-											PC_plus_4 (9 DOWNTO 2);
-						);
+			Next_PC <= Add_result
+				WHEN 	((Branch = '1') 		AND (Zero = '1') AND (Branch_NE = '0'))
+					OR ((Branch_NE = '1') 	AND (Zero = '0'))
+				ELSE Jump_Address 			WHEN (Jump = '1')
+				ELSE PC_plus_4 (9 DOWNTO 2);
+						
 			PROCESS
 				BEGIN
 					WAIT UNTIL ( Clock'EVENT ) AND ( Clock = '1' );
-					IF Reset = '1' THEN
-							PC <="0000000000";
-						ELSE
-							PC (9 DOWNTO 2) <= Next_PC;
+					IF Reset = '1' THEN PC <="0000000000";
+					ELSE PC (9 DOWNTO 2) <= Next_PC;
 					END IF;
-			END PROCESS
-
-
+			END PROCESS;
 
 END Behavioral;
-
