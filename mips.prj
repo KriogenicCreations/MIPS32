@@ -1,0 +1,6 @@
+vhdl work "op_fetch.vhd"
+vhdl work "instruction_fetch.vhd"
+vhdl work "execute.vhd"
+vhdl work "data_memory.vhd"
+vhdl work "control_unit.vhd"
+vhdl work "mips.vhd"

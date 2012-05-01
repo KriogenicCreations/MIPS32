@@ -49,7 +49,7 @@ ENTITY op_fetch IS
 				read_data_2 		: OUT STD_LOGIC_VECTOR (7 DOWNTO 0)	;
 				write_reg 			: OUT STD_LOGIC_VECTOR (4 DOWNTO 0)
 			);
-END operandfetch;
+END op_fetch;
 -- End port mapping
 
 
@@ -82,8 +82,8 @@ ARCHITECTURE Behavioral OF op_fetch IS
 		read_reg_addr2 	<= instr (20 DOWNTO 16)	;
 		write_reg_addr0 	<= instr (20 DOWNTO 16)	;
 		write_reg_addr1 	<= instr (15 DOWNTO 11)	;
-		instrs_15_to_0 	<= instr (15 DOWNTO 0)	;
-		instrs_25_to_0 	<= instr (25 DOWNTO 0)	;
+		instrs_15_0 		<= instr (15 DOWNTO 0)	;
+		instrs_25_0 		<= instr (25 DOWNTO 0)	;
 		-- Got the sections from opcode.
 	
 	
@@ -120,11 +120,11 @@ ARCHITECTURE Behavioral OF op_fetch IS
 					FOR i IN 0 TO 31 LOOP
 						reg_array(i) <= CONV_STD_LOGIC_VECTOR(i,8);
 					END LOOP;
-					-- End reset = true
 					
-				ELSIF (reg_write = '1') AND (write_reg_addr /= 0) THEN
+				ELSIF (reg_write = '1') AND (write_reg_addr /= "0") THEN
 					-- If we get to this point, there was no reset, we know to write
-					reg_array(CONV_INTEGER(write_reg_addr (4 DOWNTO 0))) <= write_data; -- Still confused as to how this works.
+					reg_array(CONV_INTEGER(write_reg_addr (4 DOWNTO 0))) <= write_data; 
+					-- Still confused as to why this way works and not the switch case way from earlier.
 				END IF;
 		END PROCESS;
 	

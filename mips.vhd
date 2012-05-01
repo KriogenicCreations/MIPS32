@@ -161,7 +161,7 @@ ARCHITECTURE Behavioral OF mips IS
 	-- Other components
 	
 	-- The data memory
-	COMPONENT datamemory
+	COMPONENT data_memory
 		PORT (
 					-- First the inputs
 					CLOCK 		: IN STD_LOGIC								;
@@ -175,7 +175,7 @@ ARCHITECTURE Behavioral OF mips IS
 					read_data 	: OUT STD_LOGIC_VECTOR (7 DOWNTO 0)
 				);
 	END COMPONENT;
-	-- End component datamemory
+	-- End component data_memory
 	
 	
 	
@@ -325,8 +325,8 @@ ARCHITECTURE Behavioral OF mips IS
 		-- end EXECUTE stage
 		
 		
-		-- datamemory
-		MEM : datamemory
+		-- data_memory
+		MEM : data_memory
 			PORT MAP (
 							CLOCK 		=> CLOCK			,
 							RESET 		=> RESET			,
@@ -336,7 +336,7 @@ ARCHITECTURE Behavioral OF mips IS
 							mem_read 	=> mem_read		,
 							mem_write 	=> mem_write
 						);
-		-- end datamemory
+		-- end data_memory
 
 
 end Behavioral;

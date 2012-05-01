@@ -50,6 +50,9 @@ END control_unit;
 ARCHITECTURE Behavioral OF control_unit IS
 
 BEGIN
+
+	-- Declare the insturctions according to opcode.
+	
 	SW 					<= '1' WHEN Opcode = "101011" ELSE '0'	;	-- Store word
 	LW 					<= '1' WHEN Opcode = "100011" ELSE '0'	;	-- Load word
 	BEQ 					<= '1' WHEN Opcode = "000100" ELSE '0'	;	-- Branch on equal
