@@ -31,23 +31,31 @@ USE IEEE.STD_LOGIC_1164.ALL;
 ENTITY control_unit IS
 	PORT (
 				-- First the inputs
-				SIGNAL CLOCK 				: IN STD_LOGIC;
-				SIGNAL RESET 				: IN STD_LOGIC;
-				SIGNAL opcode 				: IN STD_LOGIC_VECTOR (5 DOWNTO 0);
-				SIGNAL mem_read 			: OUT STD_LOGIC;
-				SIGNAL mem_to_regs 		: OUT STD_LOGIC;
-				SIGNAL reg_destination 	: OUT STD_LOGIC;
-				SIGNAL jump 				: OUT STD_LOGIC;
-				SIGNAL alu_oper 			: OUT STD_LOGIC_VECTOR (1 DOWNTO 0);
-				SIGNAL mem_write 			: OUT STD_LOGIC;
-				SIGNAL branch 				: OUT STD_LOGIC;
-				SIGNAL branch_ne 			: OUT STD_LOGIC;
-				SIGNAL alu_source 		: OUT STD_LOGIC;
+				SIGNAL CLOCK 				: IN STD_LOGIC								;
+				SIGNAL RESET 				: IN STD_LOGIC								;
+				SIGNAL opcode 				: IN STD_LOGIC_VECTOR (5 DOWNTO 0)	;
+				SIGNAL mem_read 			: OUT STD_LOGIC							;
+				SIGNAL mem_to_regs 		: OUT STD_LOGIC							;
+				SIGNAL reg_destination 	: OUT STD_LOGIC							;
+				SIGNAL jump 				: OUT STD_LOGIC							;
+				SIGNAL alu_oper 			: OUT STD_LOGIC_VECTOR (1 DOWNTO 0)	;
+				SIGNAL mem_write 			: OUT STD_LOGIC							;
+				SIGNAL branch 				: OUT STD_LOGIC							;
+				SIGNAL branch_ne 			: OUT STD_LOGIC							;
+				SIGNAL alu_source 		: OUT STD_LOGIC							;
 				SIGNAL reg_write 			: OUT STD_LOGIC
 			);
 END control_unit;
 
 ARCHITECTURE Behavioral OF control_unit IS
+	SIGNAL SW 	 		: STD_LOGIC 							;
+	SIGNAL LW 	 		: STD_LOGIC 							;
+	SIGNAL BEQ 	 		: STD_LOGIC 							;
+	SIGNAL BNE 	 		: STD_LOGIC 							;
+	SIGNAL JMP 	 		: STD_LOGIC 							;
+	SIGNAL ADDI  		: STD_LOGIC 							;
+	SIGNAL rtype 		: STD_LOGIC 							;
+	SIGNAL out_opcode : STD_LOGIC_VECTOR (5 DOWNTO 0)	;
 
 BEGIN
 
@@ -59,19 +67,18 @@ BEGIN
 	JMP 					<= '1' WHEN Opcode = "000010" ELSE '0'	;	-- Jump
 	BNE 					<= '1' WHEN Opcode = "000101" ELSE '0'	;	-- Branch on not equal
 	ADDI 					<= '1' WHEN Opcode = "001000" ELSE '0'	;	-- Add immediate
-	
-	reg_destination 	<= '1' WHEN Opcode = "000000" ELSE '0'	;	-- Register destination, RTYPE
+	rtype					<=	'1' WHEN Opcode = "000000" ELSE '0' ;	-- RTYPE
 	
 	branch 		<= BEQ							;
 	branch_ne 	<= BNE							;
 	jump 			<= JMP							;
 	mem_read 	<= LW								;
 	mem_to_regs <= LW								;
-	alu_op(1) 	<= reg_destination			;
-	alu_op(0) 	<= BEQ OR BNE					;
+	alu_oper(1)	<= rtype							;
+	alu_oper(0)	<= BEQ OR BNE					;
 	mem_write 	<= SW								;
-	ali_source 	<= LW OR SW OR ADDI			;
-	reg_write 	<= R_format OR LW OR ADDI	;
+	alu_source 	<= LW OR SW OR ADDI			;
+	reg_write 	<= rtype OR LW OR ADDI		;
 
 
 END Behavioral;

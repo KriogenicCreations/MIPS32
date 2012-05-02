@@ -29,8 +29,6 @@ USE 		IEEE.STD_LOGIC_1164.ALL		;
 USE 		IEEE.STD_LOGIC_ARITH.ALL	;
 USE 		IEEE.STD_LOGIC_UNSIGNED.ALL;
 
-LIBRARY 	LPM								;
-USE		LPM.LMP_COMPONENTS.ALL		;
 
 
 -- Entity instruction_fetch
@@ -63,18 +61,15 @@ ARCHITECTURE Behavioral OF instruction_fetch IS
 
 	-- Begin mapping
 	BEGIN
-		
-		PORT MAP (
-						address => program_counter(9 DOWNTO 2),
-						q 		  => instr	
-					);
+	
+	
 						
 		program_counter_out 						<= program_counter (7 DOWNTO 0)			;
 		program_counter_incr_out 				<= program_counter_incr (7 DOWNTO 0)	;
 		program_counter_incr (9 DOWNTO 2) 	<= program_counter (9 DOWNTO 2) + 1		;
 		program_counter_incr (1 DOWNTO 0) 	<= "00"											;
 
-		program_counter_next 					<= Add_result
+		program_counter_next 					<= add_sum
 			WHEN 	((branch = '1') 		AND (zero = '1') AND (branch_ne = '0'))
 				OR ((branch_ne = '1') 	AND (zero = '0'))
 			ELSE jump_addr 				WHEN (jump = '1')

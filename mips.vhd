@@ -181,8 +181,8 @@ ARCHITECTURE Behavioral OF mips IS
 	
 	-- Declare the signals.
 	SIGNAL program_counter_out 	: STD_LOGIC_VECTOR (7 DOWNTO 0)	;
-	SIGNAL program_counter_incr 	: STD_LOGIC_VECTOR(7 DOWNTO 0)	;
-	SIGNAL instr 						: STD_LOGIC_VECTOR(31 DOWNTO 0)	;
+	SIGNAL program_counter_incr 	: STD_LOGIC_VECTOR (7 DOWNTO 0)	;
+	SIGNAL instr 						: STD_LOGIC_VECTOR (31 DOWNTO 0)	;
 	SIGNAL sign_ext 					: STD_LOGIC_VECTOR (7 DOWNTO 0)	;
 	-------
 	SIGNAL add_sum 					: STD_LOGIC_VECTOR (7 DOWNTO 0)	;

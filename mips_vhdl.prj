@@ -1,0 +1,6 @@
+vhdl work "C:\Users\Absolute\Xilinx\workspace\Mips32\op_fetch.vhd"
+vhdl work "C:\Users\Absolute\Xilinx\workspace\Mips32\instruction_fetch.vhd"
+vhdl work "C:\Users\Absolute\Xilinx\workspace\Mips32\execute.vhd"
+vhdl work "C:\Users\Absolute\Xilinx\workspace\Mips32\data_memory.vhd"
+vhdl work "C:\Users\Absolute\Xilinx\workspace\Mips32\control_unit.vhd"
+vhdl work "C:\Users\Absolute\Xilinx\workspace\Mips32\mips.vhd"

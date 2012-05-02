@@ -1,0 +1,12 @@
+EN data_memory NULL C:/Users/Absolute/Xilinx/workspace/Mips32/data_memory.vhd sub00/vhpl08 1335942548
+AR execute behavioral C:/Users/Absolute/Xilinx/workspace/Mips32/execute.vhd sub00/vhpl07 1335942547
+AR mips behavioral C:/Users/Absolute/Xilinx/workspace/Mips32/mips.vhd sub00/vhpl11 1335942551
+AR control_unit behavioral C:/Users/Absolute/Xilinx/workspace/Mips32/control_unit.vhd sub00/vhpl03 1335942543
+EN instruction_fetch NULL C:/Users/Absolute/Xilinx/workspace/Mips32/instruction_fetch.vhd sub00/vhpl00 1335942540
+AR instruction_fetch behavioral C:/Users/Absolute/Xilinx/workspace/Mips32/instruction_fetch.vhd sub00/vhpl01 1335942541
+AR op_fetch behavioral C:/Users/Absolute/Xilinx/workspace/Mips32/op_fetch.vhd sub00/vhpl05 1335942545
+EN op_fetch NULL C:/Users/Absolute/Xilinx/workspace/Mips32/op_fetch.vhd sub00/vhpl04 1335942544
+AR data_memory behavioral C:/Users/Absolute/Xilinx/workspace/Mips32/data_memory.vhd sub00/vhpl09 1335942549
+EN execute NULL C:/Users/Absolute/Xilinx/workspace/Mips32/execute.vhd sub00/vhpl06 1335942546
+EN mips NULL C:/Users/Absolute/Xilinx/workspace/Mips32/mips.vhd sub00/vhpl10 1335942550
+EN control_unit NULL C:/Users/Absolute/Xilinx/workspace/Mips32/control_unit.vhd sub00/vhpl02 1335942542

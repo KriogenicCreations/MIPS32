@@ -24,8 +24,9 @@
 --						down into sections, I picked up the habit writing assembly code for PIC16's.
 --
 ----------------------------------------------------------------------------------
-LIBRARY 	IEEE;
-USE 		IEEE.STD_LOGIC_1164.ALL;
+LIBRARY 	IEEE								;
+USE 		IEEE.STD_LOGIC_1164.ALL		;
+USE 		IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 ENTITY execute IS
 	PORT(
@@ -55,10 +56,10 @@ ARCHITECTURE Behavioral OF execute IS
 	-- Declare some signals.
 	SIGNAL first_input	:	STD_LOGIC_VECTOR (7 DOWNTO 0)	;
 	SIGNAL second_input	:	STD_LOGIC_VECTOR (7 DOWNTO 0)	;
-	SIGNAL alu_result		: STD_LOGIC_VECTOR (7 DOWNTO 0)	;
-	SIGNAL jump_add 		: STD_LOGIC_VECTOR (7 DOWNTO 0)	;
-	SIGNAL branch_add		: STD_LOGIC_VECTOR (8 DOWNTO 0)	;
-	SIGNAL alu				: STD_LOGIC_VECTOR (2 DOWNTO 0);	-- come back and change this to 2 bits instead of 3 Evan
+	SIGNAL alu_result		: 	STD_LOGIC_VECTOR (7 DOWNTO 0)	;
+	SIGNAL jump_add 		: 	STD_LOGIC_VECTOR (7 DOWNTO 0)	;
+	SIGNAL branch_add		: 	STD_LOGIC_VECTOR (8 DOWNTO 0)	;
+	SIGNAL alu				: 	STD_LOGIC_VECTOR (2 DOWNTO 0)	;	-- come back and change this to 2 bits instead of 3 Evan
 
 	BEGIN
 		--begin
@@ -73,14 +74,14 @@ ARCHITECTURE Behavioral OF execute IS
 		alu(2) 	<= (function_field(1) AND alu_oper(1)) 								OR alu_oper(0)																;
 		alu(1) 	<= (NOT function_field(2)) 												OR (NOT alu_oper(1))														;
 		alu(0) 	<= (function_field(1) AND function_field(3) AND alu_oper(1)) 	OR(function_field(0) AND function_field(2) AND alu_oper(1))	;
-		zero 		<= '1' WHEN (alu_prod (7 DOWNTO 0) = "00000000") 					ELSE '0'																		;
-		alu_prod <= ("0000000" & alu_prod (7)) WHEN alu = "111" 						ELSE alu_prod (7 DOWNTO 0)												;
+		zero 		<= '1' WHEN (alu_result (7 DOWNTO 0) = "00000000") 				ELSE '0'																		;
+		alu_prod <= ("0000000" & alu_result (7)) WHEN alu = "111" 					ELSE alu_result (7 DOWNTO 0)												;
 		
 		-- Do the rest.
-		branch_add 	<= program_counter_incr_4 (7 DOWNTO 2) + sign_ext (7 DOWNTO 0)	;
+		branch_add 	<= sign_ext (7 DOWNTO 0) + program_counter_incr (7 DOWNTO 2)	;
 		add_sum 		<= branch_add (7 DOWNTO 0)													;
 		jump_add 	<= jump_instr (7 DOWNTO 0)													;
-		jump_add 	<= jump_addr																	;
+		jump_addr 	<= jump_add																		;
 		
 		
 		PROCESS (alu, first_input, second_input)

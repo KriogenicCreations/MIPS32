@@ -30,6 +30,7 @@
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="mips.xst"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="mips_envsettings.html"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="mips_summary.html"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="mips_vhdl.prj"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="mips_xst.xrpt"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
@@ -44,36 +45,15 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1335901896" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="4463548827525653716" xil_pn:start_ts="1335901896">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1335901896" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1335901896">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1335901896" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="2074799071451258140" xil_pn:start_ts="1335901896">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1335901896" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="3907739381874762399" xil_pn:start_ts="1335901896">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1335901896" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="-4758992002971274594" xil_pn:start_ts="1335901896">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1335928850" xil_pn:in_ck="7000246589738394897" xil_pn:name="TRANEXT_xstsynthesize_virtex6" xil_pn:prop_ck="5356200760915777755" xil_pn:start_ts="1335928844">
+    <transform xil_pn:end_ts="1335942497" xil_pn:in_ck="7000246589738394897" xil_pn:name="TRANEXT_xstsynthesize_xbr" xil_pn:prop_ck="-8085600861869132649" xil_pn:start_ts="1335942495">
       <status xil_pn:value="FailedRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="InputChanged"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="mips.lso"/>
       <outfile xil_pn:name="mips.prj"/>
       <outfile xil_pn:name="mips.syr"/>
       <outfile xil_pn:name="mips.xst"/>
+      <outfile xil_pn:name="mips_vhdl.prj"/>
       <outfile xil_pn:name="mips_xst.xrpt"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>

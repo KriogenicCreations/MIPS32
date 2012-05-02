@@ -1,43 +1,31 @@
-Release 13.2 - xst O.61xd (lin64)
+Release 13.2 - xst O.61xd (nt64)
 Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
---> 
-Parameter TMPDIR set to xst/projnav.tmp
+--> Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.11 secs
  
---> 
-Parameter xsthdpdir set to xst
+--> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.11 secs
  
---> 
-Reading design: mips.prj
+--> Reading design: mips.prj
 
 TABLE OF CONTENTS
   1) Synthesis Options Summary
-  2) HDL Parsing
-  3) HDL Elaboration
-  4) HDL Synthesis
-       4.1) HDL Synthesis Report
-  5) Advanced HDL Synthesis
-       5.1) Advanced HDL Synthesis Report
-  6) Low Level Synthesis
-  7) Partition Report
-  8) Design Summary
-       8.1) Primitive and Black Box Usage
-       8.2) Device utilization summary
-       8.3) Partition Resource Summary
-       8.4) Timing Report
-            8.4.1) Clock Information
-            8.4.2) Asynchronous Control Signals Information
-            8.4.3) Timing Summary
-            8.4.4) Timing Details
-            8.4.5) Cross Clock Domains Report
-
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
 
 =========================================================================
 *                      Synthesis Options Summary                        *
@@ -50,96 +38,69 @@ Ignore Synthesis Constraint File   : NO
 ---- Target Parameters
 Output File Name                   : "mips"
 Output Format                      : NGC
-Target Device                      : xc7a30t-3-csg324
+Target Device                      : Automotive CoolRunner2
 
 ---- Source Options
 Top Module Name                    : mips
 Automatic FSM Extraction           : YES
 FSM Encoding Algorithm             : Auto
 Safe Implementation                : No
-FSM Style                          : LUT
-RAM Extraction                     : Yes
-RAM Style                          : Auto
-ROM Extraction                     : Yes
-Shift Register Extraction          : YES
-ROM Style                          : Auto
+Mux Extraction                     : Yes
 Resource Sharing                   : YES
-Asynchronous To Synchronous        : NO
-Shift Register Minimum Size        : 2
-Use DSP Block                      : Auto
-Automatic Register Balancing       : No
 
 ---- Target Options
-LUT Combining                      : Auto
-Reduce Control Sets                : Auto
 Add IO Buffers                     : YES
-Global Maximum Fanout              : 100000
-Add Generic Clock Buffer(BUFG)     : 32
-Register Duplication               : YES
-Optimize Instantiated Primitives   : NO
-Use Clock Enable                   : Auto
-Use Synchronous Set                : Auto
-Use Synchronous Reset              : Auto
-Pack IO Registers into IOBs        : Auto
+MACRO Preserve                     : YES
+XOR Preserve                       : YES
 Equivalent register Removal        : YES
 
 ---- General Options
 Optimization Goal                  : Speed
 Optimization Effort                : 1
-Power Reduction                    : NO
-Keep Hierarchy                     : No
+Keep Hierarchy                     : Yes
 Netlist Hierarchy                  : As_Optimized
 RTL Output                         : Yes
-Global Optimization                : AllClockNets
-Read Cores                         : YES
-Write Timing Constraints           : NO
-Cross Clock Analysis               : NO
 Hierarchy Separator                : /
 Bus Delimiter                      : <>
 Case Specifier                     : Maintain
-Slice Utilization Ratio            : 100
-BRAM Utilization Ratio             : 100
-DSP48 Utilization Ratio            : 100
-Auto BRAM Packing                  : NO
-Slice Utilization Ratio Delta      : 5
+Verilog 2001                       : YES
+
+---- Other Options
+Clock Enable                       : YES
+wysiwyg                            : NO
 
 =========================================================================
 
 
 =========================================================================
-*                          HDL Parsing                                  *
+*                          HDL Compilation                              *
 =========================================================================
-Parsing VHDL file "/home/pangadmin/vpworkspace/Mips32/op_fetch.vhd" into library work
-Parsing entity <op_fetch>.
-Parsing architecture <Behavioral> of entity <op_fetch>.
-Parsing VHDL file "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" into library work
-ERROR:HDLCompiler:104 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 33: Cannot find <lmp_components> in library <lpm>. Please ensure that the library was compiled, and that a library and a use clause are present in the VHDL file.
-Parsing entity <instruction_fetch>.
-ERROR:HDLCompiler:854 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 37: Unit <instruction_fetch> ignored due to previous errors.
-Parsing architecture <Behavioral> of entity <instruction_fetch>.
-ERROR:HDLCompiler:374 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 59: Entity <instruction_fetch> is not yet compiled.
-ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 60: <std_logic_vector> is not declared.
-ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 61: <std_logic_vector> is not declared.
-ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 62: <std_logic_vector> is not declared.
-ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 66: <lpm_rom> is not declared.
-ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 80: <program_counter_out> is not declared.
-ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 81: <program_counter_incr_out> is not declared.
-ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 82: <program_counter_incr> is not declared.
-ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 83: <program_counter_incr> is not declared.
-ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 88: <jump> is not declared.
-ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 86: <branch> is not declared.
-ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 85: <program_counter_next> is not declared.
-ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 93: <clock> is not declared.
-ERROR:HDLCompiler:989 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 93: Attribute event requires a static signal prefix
-ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 94: <program_counter> is not declared.
-ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 95: <program_counter> is not declared.
-VHDL file /home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd ignored due to errors
+Compiling vhdl file "C:/Users/Absolute/Xilinx/workspace/Mips32/instruction_fetch.vhd" in Library work.
+Architecture behavioral of Entity instruction_fetch is up to date.
+Compiling vhdl file "C:/Users/Absolute/Xilinx/workspace/Mips32/control_unit.vhd" in Library work.
+Architecture behavioral of Entity control_unit is up to date.
+Compiling vhdl file "C:/Users/Absolute/Xilinx/workspace/Mips32/op_fetch.vhd" in Library work.
+Architecture behavioral of Entity op_fetch is up to date.
+Compiling vhdl file "C:/Users/Absolute/Xilinx/workspace/Mips32/execute.vhd" in Library work.
+Architecture behavioral of Entity execute is up to date.
+Compiling vhdl file "C:/Users/Absolute/Xilinx/workspace/Mips32/data_memory.vhd" in Library work.
+Architecture behavioral of Entity data_memory is up to date.
+Compiling vhdl file "C:/Users/Absolute/Xilinx/workspace/Mips32/mips.vhd" in Library work.
+Entity <mips> compiled.
+Entity <mips> (Architecture <behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <mips> in library <work> (architecture <behavioral>).
+"C:/Users/Absolute/Xilinx/workspace/Mips32/mips.vhd" line 329: In entity <mips>
+ERROR:Xst:2587 - Port <read_data> of instance <MEM> has different type in definition <data_memory>.
+ERROR:Xst:2587 - Port <write_data> of instance <MEM> has different type in definition <data_memory>.
 --> 
 
+Total memory usage is 229296 kilobytes
 
-Total memory usage is 243324 kilobytes
-
-Number of errors   :   18 (   0 filtered)
+Number of errors   :    2 (   0 filtered)
 Number of warnings :    0 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 
