@@ -32,44 +32,50 @@ LIBRARY 	IEEE								;
 
 
 ENTITY data_memory IS
-	GENERIC ( RDEL, DISDEL : TIME := 10 ns );
+	GENERIC ( 
+					DEL 		: TIME := 10 ns;
+					DISDEL 	: TIME := 10 ns
+				);
 
-  port ( 
-  			INPUT     : in STD_LOGIC_VECTOR (31 downto 0);
-       ADDRESS   : in STD_LOGIC_VECTOR (31 downto 0);
-       MEM_WRITE : in STD_LOGIC;
-       CLK       : in STD_LOGIC;
-			OUTPUT    : out STD_LOGIC_VECTOR (31 downto 0)
-         );
+	PORT ( 
+				CLOCK	:	IN	STD_LOGIC;
+				RESET	:	IN	STD_LOGIC;
+				mem_read    : IN STD_LOGIC;
+				addr   		: IN STD_LOGIC_VECTOR (7 DOWNTO 0);
+				mem_write 	: IN STD_LOGIC;
+				read_data_0	: IN STD_LOGIC_VECTOR (7 DOWNTO 0);
+				write_data	: OUT STD_LOGIC_VECTOR (31 DOWNTO 0)
+        );
 
-end DATAMEMORY;
+END data_memory;
 
-architecture BEHAVIORAL of DATAMEMORY is
+ARCHITECTURE Behavioral OF data_memory IS
+	SIGNAL	INPUT : STD_LOGIC_VECTOR (31 DOWNTO 0);
 
-  type   MEMORY is array (0 to 511) of STD_LOGIC_VECTOR (7 downto 0);
-  signal MEM : MEMORY;
-  signal OUTS: STD_LOGIC_VECTOR(31 downto 0);
+  TYPE   MEMORY IS ARRAY (0 to 511) OF STD_LOGIC_VECTOR (7 DOWNTO 0);
+  SIGNAL MEM : MEMORY;
+  SIGNAL OUTS: STD_LOGIC_VECTOR (31 DOWNTO 0);
 
-begin
+BEGIN
 
-  process ( MEM_WRITE, CLK, ADDRESS, INPUT ) is
-  begin
-    if FALLING_EDGE(CLK) then
-      if MEM_WRITE = '1' then
-        MEM(CONV_INTEGER(ADDRESS(8 downto 0))) <= INPUT(31 downto 24);
-        MEM(CONV_INTEGER(ADDRESS(8 downto 2) & "01")) <= INPUT(23 downto 16);
-        MEM(CONV_INTEGER(ADDRESS(8 downto 2) & "10")) <= INPUT(15 downto 8);
-			 MEM(CONV_INTEGER(ADDRESS(8 downto 2) & "11")) <= INPUT(7 downto 0);            
-      end if;
-    end if;
-end process;
+  PROCESS ( mem_write, CLOCK, addr, INPUT ) IS
+  BEGIN
+    IF FALLING_EDGE(CLOCK) THEN
+      IF mem_write = '1' THEN
+        MEM(CONV_INTEGER(addr(8 DOWNTO 0))) <= INPUT(31 DOWNTO 24);
+        MEM(CONV_INTEGER(addr(8 DOWNTO 2) & "01")) <= INPUT(23 DOWNTO 16);
+        MEM(CONV_INTEGER(addr(8 DOWNTO 2) & "10")) <= INPUT(15 DOWNTO 8);
+			 MEM(CONV_INTEGER(addr(8 DOWNTO 2) & "11")) <= INPUT(7 DOWNTO 0);            
+      END IF;
+    END IF;
+END PROCESS;
 
 
-OUTS(31 downto 24) <= MEM(CONV_INTEGER(ADDRESS(8 downto 0)));
-OUTS(23 downto 16) <= MEM(CONV_INTEGER(ADDRESS(8 downto 2) & "01"));
-OUTS(15 downto 8) <= MEM(CONV_INTEGER(ADDRESS(8 downto 2) & "10"));
-OUTS(7 downto 0) <= MEM(CONV_INTEGER(ADDRESS(8 downto 2) & "11"));
+OUTS(31 downto 24) <= MEM(CONV_INTEGER(addr(8 downto 0)));
+OUTS(23 downto 16) <= MEM(CONV_INTEGER(addr(8 downto 2) & "01"));
+OUTS(15 downto 8) <= MEM(CONV_INTEGER(addr(8 downto 2) & "10"));
+OUTS(7 downto 0) <= MEM(CONV_INTEGER(addr(8 downto 2) & "11"));
 
 OUTPUT <= OUTS;
 
-end BEHAVIORAL;
+END Behavioral;

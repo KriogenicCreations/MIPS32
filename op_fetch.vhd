@@ -42,7 +42,7 @@ ENTITY op_fetch IS
 				mem_to_regs 		: IN STD_LOGIC								;
 				instr 				: IN STD_LOGIC_VECTOR (31 DOWNTO 0)	;
 				alu_prod 			: IN STD_LOGIC_VECTOR (7 DOWNTO 0)	;
-				read_data 			: IN STD_LOGIC_VECTOR (7 DOWNTO 0)	;
+				read_data_0 			: IN STD_LOGIC_VECTOR (7 DOWNTO 0)	;
 				
 				-- Then the outputs
 				sign_ext 			: OUT STD_LOGIC_VECTOR (7 DOWNTO 0)	;
@@ -97,7 +97,7 @@ ARCHITECTURE Behavioral OF op_fetch IS
 		-- Now set the data to write, and addresses to write them at.
 		write_data <= alu_prod (7 DOWNTO 0)
 			WHEN (mem_to_regs = '0')
-			ELSE read_data;
+			ELSE read_data_0;
 		
 		write_reg_addr <= write_reg_addr1
 			WHEN (reg_destination = '1')

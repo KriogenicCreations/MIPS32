@@ -118,7 +118,7 @@ ARCHITECTURE Behavioral OF mips IS
 					reg_destination 	: IN STD_LOGIC								;
 					mem_to_regs 		: IN STD_LOGIC								;
 					alu_prod 			: IN STD_LOGIC_VECTOR (7 DOWNTO 0)	;
-					read_data 			: IN STD_LOGIC_VECTOR (7 DOWNTO 0)	;
+					read_data_0			: IN STD_LOGIC_VECTOR (7 DOWNTO 0)	;
 					instr 				: IN STD_LOGIC_VECTOR (31 DOWNTO 0)	;
 					
 					-- Then the outputs
@@ -167,12 +167,12 @@ ARCHITECTURE Behavioral OF mips IS
 					CLOCK 		: IN STD_LOGIC								;
 					RESET 		: IN STD_LOGIC								;
 					addr 			: IN STD_LOGIC_VECTOR (7 DOWNTO 0)	;
-					write_data 	: IN STD_LOGIC_VECTOR (7 DOWNTO 0)	;
+					write_data 	: IN STD_LOGIC_VECTOR (31 DOWNTO 0)	;
 					mem_read 	: IN STD_LOGIC								;
 					mem_write 	: IN STD_LOGIC								;
 					
 					-- Next the outputs (only one here)
-					read_data 	: OUT STD_LOGIC_VECTOR (7 DOWNTO 0)
+					read_data_0 	: OUT STD_LOGIC_VECTOR (7 DOWNTO 0)
 				);
 	END COMPONENT;
 	-- End component data_memory
@@ -198,9 +198,10 @@ ARCHITECTURE Behavioral OF mips IS
 	SIGNAL mem_to_regs 				: STD_LOGIC								;
 	SIGNAL mem_write 					: STD_LOGIC								;
 	-------
-	SIGNAL read_data 					: STD_LOGIC_VECTOR (7 DOWNTO 0)	;
+	SIGNAL read_data_0				: STD_LOGIC_VECTOR (7 DOWNTO 0)	;
 	SIGNAL read_data_1 				: STD_LOGIC_VECTOR (7 DOWNTO 0)	;
 	SIGNAL read_data_2 				: STD_LOGIC_VECTOR (7 DOWNTO 0)	;
+	SIGNAL read_data_3				: STD_LOGIC_VECTOR (31 DOWNTO 0) ;
 	-------
 	SIGNAL jump 						: STD_LOGIC								;
 	SIGNAL jump_addr 					: STD_LOGIC_VECTOR (7 DOWNTO 0)	;
@@ -223,7 +224,7 @@ ARCHITECTURE Behavioral OF mips IS
 		alu_prod_out 		<= alu_prod					;
 		read_data1_out 	<= read_data_1				;
 		read_data2_out 	<= read_data_2				;
-		write_data_out 	<= read_data
+		write_data_out 	<= read_data_0
 			WHEN (mem_to_regs = '1')
 			ELSE alu_prod									;
 		write_reg_out 		<= write_reg				;
@@ -293,7 +294,7 @@ ARCHITECTURE Behavioral OF mips IS
 							reg_destination 	=> reg_destination	,
 							alu_prod 			=> alu_prod				,
 							mem_to_regs 		=> mem_to_regs			,
-							read_data 			=> read_data			,
+							read_data_0 		=> read_data_0			,
 							instr 				=> instr					,
 							sign_ext 			=> sign_ext				,
 							jump_instr 			=> jump_instr
@@ -330,9 +331,11 @@ ARCHITECTURE Behavioral OF mips IS
 			PORT MAP (
 							CLOCK 		=> CLOCK			,
 							RESET 		=> RESET			,
-							read_data 	=> read_data	,
+							-- read_data 	=> read_data	,
+							read_data_0	=> read_data_0	,
 							addr 			=> alu_prod		,
-							write_data 	=> read_data_2	,
+							--write_data 	=> read_data_2	,
+							write_data	=>	read_data_3	,
 							mem_read 	=> mem_read		,
 							mem_write 	=> mem_write
 						);

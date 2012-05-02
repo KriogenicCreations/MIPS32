@@ -4,7 +4,7 @@ Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.11 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> Parameter xsthdpdir set to xst
 
@@ -84,23 +84,20 @@ Architecture behavioral of Entity op_fetch is up to date.
 Compiling vhdl file "C:/Users/Absolute/Xilinx/workspace/Mips32/execute.vhd" in Library work.
 Architecture behavioral of Entity execute is up to date.
 Compiling vhdl file "C:/Users/Absolute/Xilinx/workspace/Mips32/data_memory.vhd" in Library work.
-Architecture behavioral of Entity data_memory is up to date.
-Compiling vhdl file "C:/Users/Absolute/Xilinx/workspace/Mips32/mips.vhd" in Library work.
-Entity <mips> compiled.
-Entity <mips> (Architecture <behavioral>) compiled.
-
-=========================================================================
-*                     Design Hierarchy Analysis                         *
-=========================================================================
-Analyzing hierarchy for entity <mips> in library <work> (architecture <behavioral>).
-"C:/Users/Absolute/Xilinx/workspace/Mips32/mips.vhd" line 329: In entity <mips>
-ERROR:Xst:2587 - Port <read_data> of instance <MEM> has different type in definition <data_memory>.
-ERROR:Xst:2587 - Port <write_data> of instance <MEM> has different type in definition <data_memory>.
+Entity <data_memory> compiled.
+ERROR:HDLParsers:1401 - "C:/Users/Absolute/Xilinx/workspace/Mips32/data_memory.vhd" Line 60. Object write_data of mode OUT can not be read.
+ERROR:HDLParsers:3367 - "C:/Users/Absolute/Xilinx/workspace/Mips32/data_memory.vhd" Line 64. 8 is not included in the index range, 7 downto 0, of array addr.
+ERROR:HDLParsers:3367 - "C:/Users/Absolute/Xilinx/workspace/Mips32/data_memory.vhd" Line 65. 8 is not included in the index range, 7 downto 0, of array addr.
+ERROR:HDLParsers:3367 - "C:/Users/Absolute/Xilinx/workspace/Mips32/data_memory.vhd" Line 66. 8 is not included in the index range, 7 downto 0, of array addr.
+ERROR:HDLParsers:3367 - "C:/Users/Absolute/Xilinx/workspace/Mips32/data_memory.vhd" Line 67. 8 is not included in the index range, 7 downto 0, of array addr.
+ERROR:HDLParsers:3312 - "C:/Users/Absolute/Xilinx/workspace/Mips32/data_memory.vhd" Line 73. Undefined symbol 'ADDRESS'.
+ERROR:HDLParsers:1209 - "C:/Users/Absolute/Xilinx/workspace/Mips32/data_memory.vhd" Line 73. ADDRESS: Undefined symbol (last report in this block)
+ERROR:HDLParsers:3312 - "C:/Users/Absolute/Xilinx/workspace/Mips32/data_memory.vhd" Line 78. Undefined symbol 'OUTPUT'.
 --> 
 
-Total memory usage is 229296 kilobytes
+Total memory usage is 226764 kilobytes
 
-Number of errors   :    2 (   0 filtered)
+Number of errors   :    8 (   0 filtered)
 Number of warnings :    0 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 

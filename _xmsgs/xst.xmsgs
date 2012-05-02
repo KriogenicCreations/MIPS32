@@ -5,10 +5,28 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="error" file="Xst" num="2587" delta="old" >Port &lt;<arg fmt="%s" index="1">read_data</arg>&gt; of instance &lt;<arg fmt="%s" index="2">MEM</arg>&gt; has different type in definition &lt;<arg fmt="%s" index="3">data_memory</arg>&gt;.
+<msg type="error" file="HDLParsers" num="1401" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Absolute/Xilinx/workspace/Mips32/data_memory.vhd</arg>&quot; Line <arg fmt="%d" index="2">60</arg>. Object <arg fmt="%s" index="3">write_data</arg> of mode <arg fmt="%s" index="4">OUT</arg> can not be read.
 </msg>
 
-<msg type="error" file="Xst" num="2587" delta="old" >Port &lt;<arg fmt="%s" index="1">write_data</arg>&gt; of instance &lt;<arg fmt="%s" index="2">MEM</arg>&gt; has different type in definition &lt;<arg fmt="%s" index="3">data_memory</arg>&gt;.
+<msg type="error" file="HDLParsers" num="3367" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Absolute/Xilinx/workspace/Mips32/data_memory.vhd</arg>&quot; Line <arg fmt="%d" index="2">64</arg>. <arg fmt="%d" index="3">8</arg> is not included in the index range, <arg fmt="%d" index="4">7</arg> <arg fmt="%s" index="5">downto</arg> <arg fmt="%d" index="6">0</arg>, of array <arg fmt="%s" index="7">addr</arg>.
+</msg>
+
+<msg type="error" file="HDLParsers" num="3367" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Absolute/Xilinx/workspace/Mips32/data_memory.vhd</arg>&quot; Line <arg fmt="%d" index="2">65</arg>. <arg fmt="%d" index="3">8</arg> is not included in the index range, <arg fmt="%d" index="4">7</arg> <arg fmt="%s" index="5">downto</arg> <arg fmt="%d" index="6">0</arg>, of array <arg fmt="%s" index="7">addr</arg>.
+</msg>
+
+<msg type="error" file="HDLParsers" num="3367" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Absolute/Xilinx/workspace/Mips32/data_memory.vhd</arg>&quot; Line <arg fmt="%d" index="2">66</arg>. <arg fmt="%d" index="3">8</arg> is not included in the index range, <arg fmt="%d" index="4">7</arg> <arg fmt="%s" index="5">downto</arg> <arg fmt="%d" index="6">0</arg>, of array <arg fmt="%s" index="7">addr</arg>.
+</msg>
+
+<msg type="error" file="HDLParsers" num="3367" delta="new" >&quot;<arg fmt="%s" index="1">C:/Users/Absolute/Xilinx/workspace/Mips32/data_memory.vhd</arg>&quot; Line <arg fmt="%d" index="2">67</arg>. <arg fmt="%d" index="3">8</arg> is not included in the index range, <arg fmt="%d" index="4">7</arg> <arg fmt="%s" index="5">downto</arg> <arg fmt="%d" index="6">0</arg>, of array <arg fmt="%s" index="7">addr</arg>.
+</msg>
+
+<msg type="error" file="HDLParsers" num="3312" delta="old" >&quot;<arg fmt="%s" index="1">C:/Users/Absolute/Xilinx/workspace/Mips32/data_memory.vhd</arg>&quot; Line <arg fmt="%d" index="2">73</arg>. Undefined symbol &apos;<arg fmt="%s" index="3">ADDRESS</arg>&apos;.
+</msg>
+
+<msg type="error" file="HDLParsers" num="1209" delta="old" >&quot;<arg fmt="%s" index="1">C:/Users/Absolute/Xilinx/workspace/Mips32/data_memory.vhd</arg>&quot; Line <arg fmt="%d" index="2">73</arg>. <arg fmt="%s" index="3">ADDRESS</arg>: Undefined symbol (last report in this block)
+</msg>
+
+<msg type="error" file="HDLParsers" num="3312" delta="old" >&quot;<arg fmt="%s" index="1">C:/Users/Absolute/Xilinx/workspace/Mips32/data_memory.vhd</arg>&quot; Line <arg fmt="%d" index="2">78</arg>. Undefined symbol &apos;<arg fmt="%s" index="3">OUTPUT</arg>&apos;.
 </msg>
 
 </messages>
