@@ -26,6 +26,8 @@
 ----------------------------------------------------------------------------------
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.STD_LOGIC_ARITH.ALL;
+USE IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 
 -- Start op_fetch entity
@@ -56,6 +58,9 @@ END op_fetch;
 ARCHITECTURE Behavioral OF op_fetch IS
 	-- Start the architecture
 	
+	-- The array is the register file itself 32 wide.
+	TYPE reg_file IS ARRAY (0 TO 31) OF STD_LOGIC_VECTOR (7 DOWNTO 0)	;		-- still don't know how that works, had to look it up.
+	
 	-- Declare some signals
 	SIGNAL reg_array		 	: reg_file								;
 	SIGNAL read_reg_addr1 	: STD_LOGIC_VECTOR (4 DOWNTO 0)	;
@@ -67,9 +72,6 @@ ARCHITECTURE Behavioral OF op_fetch IS
 	SIGNAL instrs_15_0 		: STD_LOGIC_VECTOR (15 DOWNTO 0)	;
 	SIGNAL instrs_25_0 		: STD_LOGIC_VECTOR (25 DOWNTO 0)	;
 	-- End declaring the signal
-	
-	-- The array is the register file itself 32 wide.
-	TYPE reg_file IS ARRAY (0 TO 31) OF STD_LOGIC_VECTOR (7 DOWNTO 0)	;		-- still don't know how that works, had to look it up.
 	
 	
 	-- Begin

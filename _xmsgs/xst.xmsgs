@@ -5,22 +5,58 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="error" file="HDLCompiler" num="69" delta="old" >"/home/pangadmin/vpworkspace/Mips32/op_fetch.vhd" Line 60: &lt;<arg fmt="%s" index="1">reg_file</arg>&gt; is not declared.
+<msg type="error" file="HDLCompiler" num="104" delta="new" >"/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 33: Cannot find &lt;<arg fmt="%s" index="1">lmp_components</arg>&gt; in library &lt;<arg fmt="%s" index="2">lpm</arg>&gt;. Please ensure that the library was compiled, and that a library and a use clause are present in the VHDL file.
 </msg>
 
-<msg type="error" file="HDLCompiler" num="69" delta="old" >"/home/pangadmin/vpworkspace/Mips32/op_fetch.vhd" Line 91: &lt;<arg fmt="%s" index="1">reg_array</arg>&gt; is not declared.
+<msg type="error" file="HDLCompiler" num="854" delta="new" >"/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 37: Unit &lt;<arg fmt="%s" index="1">instruction_fetch</arg>&gt; ignored due to previous errors.
 </msg>
 
-<msg type="error" file="HDLCompiler" num="69" delta="old" >"/home/pangadmin/vpworkspace/Mips32/op_fetch.vhd" Line 92: &lt;<arg fmt="%s" index="1">reg_array</arg>&gt; is not declared.
+<msg type="error" file="HDLCompiler" num="374" delta="new" >"/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 59: Entity &lt;<arg fmt="%s" index="1">instruction_fetch</arg>&gt; is not yet compiled.
 </msg>
 
-<msg type="error" file="HDLCompiler" num="69" delta="old" >"/home/pangadmin/vpworkspace/Mips32/op_fetch.vhd" Line 121: &lt;<arg fmt="%s" index="1">reg_array</arg>&gt; is not declared.
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 60: &lt;<arg fmt="%s" index="1">std_logic_vector</arg>&gt; is not declared.
 </msg>
 
-<msg type="error" file="HDLCompiler" num="69" delta="old" >"/home/pangadmin/vpworkspace/Mips32/op_fetch.vhd" Line 126: &lt;<arg fmt="%s" index="1">reg_array</arg>&gt; is not declared.
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 61: &lt;<arg fmt="%s" index="1">std_logic_vector</arg>&gt; is not declared.
 </msg>
 
-<msg type="error" file="HDLCompiler" num="854" delta="old" >"/home/pangadmin/vpworkspace/Mips32/op_fetch.vhd" Line 56: Unit &lt;<arg fmt="%s" index="1">behavioral</arg>&gt; ignored due to previous errors.
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 62: &lt;<arg fmt="%s" index="1">std_logic_vector</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="old" >"/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 66: &lt;<arg fmt="%s" index="1">lpm_rom</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 80: &lt;<arg fmt="%s" index="1">program_counter_out</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 81: &lt;<arg fmt="%s" index="1">program_counter_incr_out</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 82: &lt;<arg fmt="%s" index="1">program_counter_incr</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 83: &lt;<arg fmt="%s" index="1">program_counter_incr</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 88: &lt;<arg fmt="%s" index="1">jump</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 86: &lt;<arg fmt="%s" index="1">branch</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 85: &lt;<arg fmt="%s" index="1">program_counter_next</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 93: &lt;<arg fmt="%s" index="1">clock</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="989" delta="new" >"/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 93: Attribute <arg fmt="%s" index="1">event</arg> requires a static signal prefix
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 94: &lt;<arg fmt="%s" index="1">program_counter</arg>&gt; is not declared.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="69" delta="new" >"/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 95: &lt;<arg fmt="%s" index="1">program_counter</arg>&gt; is not declared.
 </msg>
 
 </messages>

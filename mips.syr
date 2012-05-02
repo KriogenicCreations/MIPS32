@@ -112,19 +112,34 @@ Slice Utilization Ratio Delta      : 5
 Parsing VHDL file "/home/pangadmin/vpworkspace/Mips32/op_fetch.vhd" into library work
 Parsing entity <op_fetch>.
 Parsing architecture <Behavioral> of entity <op_fetch>.
-ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/op_fetch.vhd" Line 60: <reg_file> is not declared.
-ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/op_fetch.vhd" Line 91: <reg_array> is not declared.
-ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/op_fetch.vhd" Line 92: <reg_array> is not declared.
-ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/op_fetch.vhd" Line 121: <reg_array> is not declared.
-ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/op_fetch.vhd" Line 126: <reg_array> is not declared.
-ERROR:HDLCompiler:854 - "/home/pangadmin/vpworkspace/Mips32/op_fetch.vhd" Line 56: Unit <behavioral> ignored due to previous errors.
-VHDL file /home/pangadmin/vpworkspace/Mips32/op_fetch.vhd ignored due to errors
+Parsing VHDL file "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" into library work
+ERROR:HDLCompiler:104 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 33: Cannot find <lmp_components> in library <lpm>. Please ensure that the library was compiled, and that a library and a use clause are present in the VHDL file.
+Parsing entity <instruction_fetch>.
+ERROR:HDLCompiler:854 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 37: Unit <instruction_fetch> ignored due to previous errors.
+Parsing architecture <Behavioral> of entity <instruction_fetch>.
+ERROR:HDLCompiler:374 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 59: Entity <instruction_fetch> is not yet compiled.
+ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 60: <std_logic_vector> is not declared.
+ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 61: <std_logic_vector> is not declared.
+ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 62: <std_logic_vector> is not declared.
+ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 66: <lpm_rom> is not declared.
+ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 80: <program_counter_out> is not declared.
+ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 81: <program_counter_incr_out> is not declared.
+ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 82: <program_counter_incr> is not declared.
+ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 83: <program_counter_incr> is not declared.
+ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 88: <jump> is not declared.
+ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 86: <branch> is not declared.
+ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 85: <program_counter_next> is not declared.
+ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 93: <clock> is not declared.
+ERROR:HDLCompiler:989 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 93: Attribute event requires a static signal prefix
+ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 94: <program_counter> is not declared.
+ERROR:HDLCompiler:69 - "/home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd" Line 95: <program_counter> is not declared.
+VHDL file /home/pangadmin/vpworkspace/Mips32/instruction_fetch.vhd ignored due to errors
 --> 
 
 
-Total memory usage is 242484 kilobytes
+Total memory usage is 243324 kilobytes
 
-Number of errors   :    6 (   0 filtered)
+Number of errors   :   18 (   0 filtered)
 Number of warnings :    0 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 

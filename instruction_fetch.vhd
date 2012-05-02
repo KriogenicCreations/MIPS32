@@ -24,10 +24,13 @@
 --						down into sections, I picked up the habit writing assembly code for PIC16's.
 --
 ----------------------------------------------------------------------------------
-LIBRARY IEEE;
-USE IEEE.STD_LOGIC_1164.ALL;
-USE IEEE.STD_LOGIC_ARITH.ALL;
-USE IEEE.STD_LOGIC_UNSIGNED.ALL;
+LIBRARY 	IEEE								;
+USE 		IEEE.STD_LOGIC_1164.ALL		;
+USE 		IEEE.STD_LOGIC_ARITH.ALL	;
+USE 		IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+LIBRARY 	LPM								;
+USE		LPM.LMP_COMPONENTS.ALL		;
 
 
 -- Entity instruction_fetch
@@ -60,28 +63,36 @@ ARCHITECTURE Behavioral OF instruction_fetch IS
 
 	-- Begin mapping
 	BEGIN
-		Instr_Memory: LPM_ROM
+		Instruction_Memory: LPM_ROM
+		GENERIC MAP(
+				LPM_WIDTH 				=> 32,
+				LPM_WIDTHAD 			=> 8,
+				LPM_FILE 				=> "instruction_memory.mif",
+				LPM_OUTDATA 			=> "UNREGISTERED",
+				LPM_ADDRESS_CONTROL 	=> "UNREGISTERED"
+			)
+		
 			PORT MAP (
 							address => PC(9 DOWNTO 2),
-							q 		  => Instruction	
+							q 		  => instr	
 						);
 							
-			PC_Out <= PC (7 DOWNTO 0);
-			PC_plus_4_out <= PC_plus_4 (7 DOWNTO 0);
-			PC_plus_4 (9 DOWNTO 2) <= PC (9 DOWNTO 2) + 1;
-			PC_plus_4 (1 DOWNTO 0) <= "00";
+			program_counter_out 						<= program_counter (7 DOWNTO 0)			;
+			program_counter_incr_out 				<= program_counter_incr (7 DOWNTO 0)	;
+			program_counter_incr (9 DOWNTO 2) 	<= program_counter (9 DOWNTO 2) + 1		;
+			program_counter_incr (1 DOWNTO 0) 	<= "00"											;
 
-			Next_PC <= Add_result
-				WHEN 	((Branch = '1') 		AND (Zero = '1') AND (Branch_NE = '0'))
-					OR ((Branch_NE = '1') 	AND (Zero = '0'))
-				ELSE Jump_Address 			WHEN (Jump = '1')
-				ELSE PC_plus_4 (9 DOWNTO 2);
+			program_counter_next 					<= Add_result
+				WHEN 	((branch = '1') 		AND (zero = '1') AND (branch_ne = '0'))
+					OR ((branch_ne = '1') 	AND (zero = '0'))
+				ELSE jump_addr 				WHEN (jump = '1')
+				ELSE program_counter_incr (9 DOWNTO 2)												;
 						
 			PROCESS
 				BEGIN
-					WAIT UNTIL ( Clock'EVENT ) AND ( Clock = '1' );
-					IF Reset = '1' THEN PC <="0000000000";
-					ELSE PC (9 DOWNTO 2) <= Next_PC;
+					WAIT UNTIL ( CLOCK'EVENT ) AND ( CLOCK = '1' );
+					IF RESET = '1' THEN program_counter	<="0000000000"				;
+					ELSE program_counter (9 DOWNTO 2) 	<= program_counter_next	;
 					END IF;
 			END PROCESS;
 
