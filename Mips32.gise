@@ -28,6 +28,7 @@
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="mips.prj"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="mips.syr"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="mips.xst"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="mips_envsettings.html"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="mips_summary.html"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="mips_xst.xrpt"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
@@ -63,7 +64,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1335902632" xil_pn:in_ck="7000246589738394897" xil_pn:name="TRANEXT_xstsynthesize_virtex6" xil_pn:prop_ck="5356200760915777755" xil_pn:start_ts="1335902626">
+    <transform xil_pn:end_ts="1335928850" xil_pn:in_ck="7000246589738394897" xil_pn:name="TRANEXT_xstsynthesize_virtex6" xil_pn:prop_ck="5356200760915777755" xil_pn:start_ts="1335928844">
       <status xil_pn:value="FailedRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>

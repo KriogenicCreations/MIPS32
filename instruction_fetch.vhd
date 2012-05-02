@@ -63,37 +63,29 @@ ARCHITECTURE Behavioral OF instruction_fetch IS
 
 	-- Begin mapping
 	BEGIN
-		Instruction_Memory: LPM_ROM
-		GENERIC MAP(
-				LPM_WIDTH 				=> 32,
-				LPM_WIDTHAD 			=> 8,
-				LPM_FILE 				=> "instruction_memory.mif",
-				LPM_OUTDATA 			=> "UNREGISTERED",
-				LPM_ADDRESS_CONTROL 	=> "UNREGISTERED"
-			)
 		
-			PORT MAP (
-							address => PC(9 DOWNTO 2),
-							q 		  => instr	
-						);
-							
-			program_counter_out 						<= program_counter (7 DOWNTO 0)			;
-			program_counter_incr_out 				<= program_counter_incr (7 DOWNTO 0)	;
-			program_counter_incr (9 DOWNTO 2) 	<= program_counter (9 DOWNTO 2) + 1		;
-			program_counter_incr (1 DOWNTO 0) 	<= "00"											;
-
-			program_counter_next 					<= Add_result
-				WHEN 	((branch = '1') 		AND (zero = '1') AND (branch_ne = '0'))
-					OR ((branch_ne = '1') 	AND (zero = '0'))
-				ELSE jump_addr 				WHEN (jump = '1')
-				ELSE program_counter_incr (9 DOWNTO 2)												;
+		PORT MAP (
+						address => program_counter(9 DOWNTO 2),
+						q 		  => instr	
+					);
 						
-			PROCESS
-				BEGIN
-					WAIT UNTIL ( CLOCK'EVENT ) AND ( CLOCK = '1' );
-					IF RESET = '1' THEN program_counter	<="0000000000"				;
-					ELSE program_counter (9 DOWNTO 2) 	<= program_counter_next	;
-					END IF;
-			END PROCESS;
+		program_counter_out 						<= program_counter (7 DOWNTO 0)			;
+		program_counter_incr_out 				<= program_counter_incr (7 DOWNTO 0)	;
+		program_counter_incr (9 DOWNTO 2) 	<= program_counter (9 DOWNTO 2) + 1		;
+		program_counter_incr (1 DOWNTO 0) 	<= "00"											;
+
+		program_counter_next 					<= Add_result
+			WHEN 	((branch = '1') 		AND (zero = '1') AND (branch_ne = '0'))
+				OR ((branch_ne = '1') 	AND (zero = '0'))
+			ELSE jump_addr 				WHEN (jump = '1')
+			ELSE program_counter_incr (9 DOWNTO 2)												;
+					
+		PROCESS
+			BEGIN
+				WAIT UNTIL ( CLOCK'EVENT ) AND ( CLOCK = '1' );
+				IF RESET = '1' THEN program_counter	<="0000000000"				;
+				ELSE program_counter (9 DOWNTO 2) 	<= program_counter_next	;
+				END IF;
+		END PROCESS;
 
 END Behavioral;
