@@ -1,3 +1,10 @@
+-------------------------------------
+*            Project CPU            *
+*(c) 2014 KriogenicCreations America*
+-------------------------------------
+
+Source is released under the GNU Public License v2
+
 This is a VHDL implementation of a 32-bit single-cycle MIPS style processor.
 The project was created using Xilinx ISE on Ubuntu 11.04.
 
